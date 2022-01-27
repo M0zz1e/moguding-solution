@@ -30,16 +30,6 @@
 
 - [php-moguding-sdk](https://github.com/laradocs/php-moguding-sdk)
 
-## 常见问题
-
-1. Error: Process completed with exit code 1.
-
-如果出现了上面的字样，那么就把当前的 `workflow` 删除重新执行。
-
-![exitcode1](public/images/exitcode1.png)
-
-暂时还没找到具体问题出在哪里。有可能是 `上网` 的问题(猜测)。
-
 ## 用法
 
 1. Fork 项目
@@ -67,11 +57,14 @@
 - DEVICE: android|ios
 - PHONE: 手机号码
 - PASSWORD: 密码
-- PROVINCE: 省(一定要写全，例如：江西省)
-- CITY: 市(一定要写全，例如：南昌市)
+- PROVINCE: 省(一定要写全，例如：江西省) 注：如果你在市辖区，直接填 xx市 即可，例如：上海市。
+- CITY: 市(一定要写全，例如：南昌市) 注：如果你在市辖区，跳过这个参数。
 - ADDRESS: 详细地址(可以登录蘑菇丁查看定位，把省和市去掉)
 - LONGITUDE: 经度
 - LATITUDE: 纬度
+
+
+- DESCRIPTION: 备注(非必填)
 
 如果你不知道经纬度
 
@@ -79,12 +72,26 @@
 
 填写所在的 市(例如：南昌（不要带上后面的市）)，然后点击 查询 就好了。
 
+填写完成后点击 `Add secret` 按钮即可。
+
+然后重复上述操作全部添加即可。
+
 ![Moguding](public/images/new-repository-secret.png)
 ![add](public/images/add.png)
 
-填写完成后点击 `Add secret` 按钮即可。
+> 新功能：使用 [Server 酱](https://sct.ftqq.com) 做消息推送
 
-然后接着往下添加。
+点击 [Server 酱](https://sct.ftqq.com) 进入 Server 酱官方网站
+
+然后点击 SendKey「需要登录」
+
+微信扫码登录之后复制 `SendKey`
+
+然后接着添加 `Secrets`，参数如下：
+
+- SENDKEY: 刚才复制的 `SendKey` (非必填：不填表示不使用 Server 酱推送消息)
+
+Done!
 
 5. 启用 Actions
 
@@ -111,4 +118,14 @@
 
 同理，下班也是这么操作。
 
-如果有疑问或问题，可以在 [issues](https://github.com/laradocs/moguding-solution/issues) 中提出。
+如果有疑问或问题，可以在 [Issues](https://github.com/laradocs/moguding-solution/issues) 中提出。
+
+## 常见问题
+
+1. Error: Process completed with exit code 1.
+
+如果出现了上面的字样，那么就把当前的 `workflow` 删除重新执行。
+
+![exitcode1](public/images/exitcode1.png)
+
+暂时还没找到具体问题出在哪里。有可能是 `上网` 的问题(猜测)。
